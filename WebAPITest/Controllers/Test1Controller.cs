@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace WebAPITest.Controllers
 {
@@ -12,16 +14,18 @@ namespace WebAPITest.Controllers
 
 
         [HttpPost] // POST 用メソッド
-        public IEnumerable<Person> Get()
+        public Person Post(IEnumerable<Person> persons)
         {
             //return new string[] { "value1", "value2" };
 
-            return new[]
+            foreach (var person in persons)
             {
-                new Person(){Id = 1, Name ="hoge", Time = DateTime.Now},
-                new Person(){Id = 2, Name ="fuga", Time = DateTime.Now.AddDays(1)}
-            };
+                Debug.WriteLine("id is " + person.Id);
+                Debug.WriteLine("name is " + person.Name);
+                Debug.WriteLine("time is " + person.Time);
+            }
 
+            return new Person() { Id = 999, Name = "return", Time = DateTime.Now.AddDays(10) };
         }
 
         [HttpGet] // GET 用メソッド
@@ -29,7 +33,7 @@ namespace WebAPITest.Controllers
         {
             //return new string[] { "value1", "value2" };
 
-            System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(2000);
 
             return new[]
             {
@@ -37,7 +41,5 @@ namespace WebAPITest.Controllers
             };
 
         }
-
-
     }
 }

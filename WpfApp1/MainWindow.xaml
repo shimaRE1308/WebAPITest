@@ -8,6 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
 
     <StackPanel>
-        <Button Width="100" Height="40" Content="通信" Click="Button_Send" />
+        <Button Width="100" Height="40" Content="Get通信" Click="Button_Get" />
+        <Button Width="100" Height="40" Content="Post通信" Click="Button_Post" />
     </StackPanel>
 </Window>
