@@ -6,9 +6,11 @@ using System.Net.Http;
 using System.Web.Http;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Web.Configuration;
 
 namespace WebAPITest.Controllers
 {
+    [RoutePrefix("hoge/Test1")]
     public class Test1Controller : ApiController
     {
 
@@ -39,7 +41,16 @@ namespace WebAPITest.Controllers
             {
                 new Person(){Id = 1, Name ="piyo", Time = DateTime.Now}
             };
+        }
 
+        [HttpGet]
+        [Route("getget")]
+        public string Get3()
+        {
+            Debug.WriteLine(WebConfigurationManager.ConnectionStrings["sqlserv"].ConnectionString);
+            Debug.WriteLine(WebConfigurationManager.AppSettings["configKey"]);
+
+            return "11223344";
         }
     }
 }
