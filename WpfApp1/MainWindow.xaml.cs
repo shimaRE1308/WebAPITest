@@ -16,6 +16,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Runtime.Serialization.Json;
 using System.IO;
+using WpfApp1.Properties;
 
 namespace WpfApp1
 {
@@ -31,6 +32,7 @@ namespace WpfApp1
 
         private void Button_Get(object sender, RoutedEventArgs e)
         {
+
 
             Hoge();
 

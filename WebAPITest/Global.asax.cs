@@ -17,14 +17,6 @@ namespace WebAPITest
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
 
-            Debug.WriteLine("hogehogehoge");
-
-            Directory.CreateDirectory("C:\\aaaa");
-        }
-
-        protected void Application_BeginRequest(object sender, EventArgs e)
-        {
-            Debug.WriteLine("あいうえお");
         }
 
     }
